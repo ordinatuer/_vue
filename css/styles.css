@@ -1,0 +1,29 @@
+.datepicker {
+	width: 98%;
+	font-size: 200%;
+}
+.datepicker--cell {
+	height: 10%;
+}
+.remove-row {
+	background-color: #fdd;
+	cursor: pointer;
+}
+#periods td {
+	text-align: center;
+}
+@media (max-width: 992px) {
+	.calc {
+		font-size: 100%;
+	}
+	#periods {
+		font-size: 170%;	
+	}
+	#periods td {
+		border-right: 1px solid #333;
+	}
+	.calc input {
+		font-size: 200%;
+		height: auto;
+	}
+}
