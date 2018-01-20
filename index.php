@@ -93,14 +93,16 @@
 			var price = +$('#price').val();
 
 			if( 2 === datas.length && 0 !== price ) {
-				var day = {};
+				var period = {};
 
-				day['dates'] = res;
-				day['days'] = (datas[1] - datas[0])/(1000*60*60*24) + 1;
-				day['cost'] = price;
-				day['sum'] = day['cost'] * day['days'];
+				period['dates'] = res;
+				period['days'] = (datas[1] - datas[0])/(1000*60*60*24) + 1;
+				period['cost'] = price;
+				period['sum'] = period['cost'] * period['days'];
 
-				Periods.items.push(day);
+				Periods.items.push(period);
+                
+                
 			} else {
 				console.log('Select 1 More Day');
 			}
