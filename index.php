@@ -110,14 +110,15 @@
 	});
 
 	/// testing data
-	$('#price').val(6400);
-
-	Periods.items.push({
+	//$('#price').val(6400); // price
+    
+    var testData = {
 		dates:"13.11.2017,30.11.2017",
 		days:18,
 		cost:2388,
 		sum:42984
-	});
+	};
+	//Periods.items.push(testData); // table data
 
 	/// ! testing
 
