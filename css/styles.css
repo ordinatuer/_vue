@@ -1,18 +1,39 @@
 .datepicker {
 	width: 98%;
-	font-size: 200%;
+	font-size: 300%;
 }
-.datepicker--cell {
+.datepicker--cell-day {
 	height: 10%;
 }
+.datepicker--cell-month {
+    height: 10%;
+}
+.datepicker--cell-year {
+    height: 10%;
+}
+.datepicker--cells-months,
+.datepicker--years,
+.datepicker--cells-years
+{
+    height: auto;
+}
+.datepicker--nav-action {
+    width: 15%;
+}
+
 .remove-row {
-	background-color: #fdd;
+	background-color: #fdd !important;
 	cursor: pointer;
+	border-bottom: 1px solid white;
 }
 #periods td {
 	text-align: center;
 }
-@media (max-width: 992px) {
+.datepicker--nav {
+    height: 10%;
+}
+
+/*@media (max-width: 992px) {*/
 	.calc {
 		font-size: 100%;
 	}
@@ -20,10 +41,10 @@
 		font-size: 170%;	
 	}
 	#periods td {
-		border-right: 1px solid #333;
+		border-right: 1px solid #999;
 	}
 	.calc input {
 		font-size: 200%;
 		height: auto;
 	}
-}
+/*}*/
