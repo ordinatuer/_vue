@@ -136,11 +136,13 @@
         localData = JSON.parse(localData);
         
         Periods.items = localData;
+        $('#price').val(localData[localData.length - 1].cost);
+        
         console.log(localData);
     }
 
 	/// testing data
-	$('#price').val(6400); // price
+	//$('#price').val(6400); // price
     
     var testData = {
 		dates:"13.11.2017,30.11.2017",
