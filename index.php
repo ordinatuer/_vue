@@ -52,6 +52,21 @@
 <script src="js/datepicker.min.js"></script>
 <script src="js/vue.js"></script>
 <script>
+    var localCRUD = {
+        data: {
+            key: 'CalCom'
+        },
+        methods: {
+            save: function() {
+                localStorage.setItem(
+                    this.key,
+                    JSON.stringify(this.items)
+                );
+                console.log('add');
+            }
+        }
+    };
+    
 	var Periods = new Vue({
 		el:'#periods',
 		data: {
@@ -62,6 +77,7 @@
 		methods:{
 			rm: function (index) {
 				this.items.splice(index, 1);
+                this.save();
 			}
 		},
 		computed: {
@@ -82,10 +98,14 @@
 			showHead: function(){
 				return !!this.items.length;
 			}
-		}
+		},
+        mixins: [
+            localCRUD
+        ]
 	});
+    
 
-
+    Periods.mixins = [localCRUD];
 
 	$('.dp').datepicker({
 		range: true,
@@ -101,6 +121,7 @@
 				period['sum'] = period['cost'] * period['days'];
 
 				Periods.items.push(period);
+                Periods.save();
                 
                 
 			} else {
@@ -109,8 +130,17 @@
 		}
 	});
 
+    var localData = localStorage.getItem(Periods.key);
+    
+    if ( null !== localData && '[]' !== localData ) {
+        localData = JSON.parse(localData);
+        
+        Periods.items = localData;
+        console.log(localData);
+    }
+
 	/// testing data
-	//$('#price').val(6400); // price
+	$('#price').val(6400); // price
     
     var testData = {
 		dates:"13.11.2017,30.11.2017",
